@@ -1,0 +1,47 @@
+version: "3.1"
+
+
+rules:
+
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- rule: activate product form
+  steps:
+  - intent: buy_request
+  - action: product_form
+  - active_loop: product_form
+
+- rule: after accept
+  steps:
+  - intent: accept_price
+  - action: utter_happy_to_sell
+  - action: utter_goodbye
+
+- rule: user deny
+  steps:
+  - intent: deny_price
+  - action: utter_ask_new_price
+  - active_loop: product_form
+
+- rule: Submit product form
+  condition:
+  - active_loop: product_form
+  steps:
+  - action: product_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slots
+  - action: action_get_dis_price
+  - action: utter_wait_for_confirmation

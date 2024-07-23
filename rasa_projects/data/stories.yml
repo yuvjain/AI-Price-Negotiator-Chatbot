@@ -1,0 +1,280 @@
+version: "3.1"
+
+
+stories:
+
+
+- story: greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+
+- story: start negotiation
+  steps:
+  - intent: buy_request
+  - action: product_form
+  - active_loop: product_form
+
+
+# - story: user accepts offer
+#   steps:
+#   - intent: accept_price
+#   - action: utter_happy_to_sell
+#   - action: utter_goodbye
+
+
+- story: user rejects offer
+  steps:
+  - intent: deny_price
+  - action: utter_ask_new_price
+  - active_loop: product_form
+
+
+- story: negotiate_again
+  steps:
+  - checkpoint: retry_neg
+  - action: utter_counter_offer
+  - action: utter_ask_proposed_price
+  - active_loop: product_form
+
+
+- story: bye bye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: buy_request
+#   - action: product_form
+#   - active_loop: product_form
+#   - slot_was_set:
+#     - requested_slot: product_id
+#   - intent: inform_product_id
+#     entities:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - slot_was_set:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: quantity
+#   - intent: inform_quantity
+#     entities:
+#     - quantity: '20'
+#   - slot_was_set:
+#     - quantity: '20'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: proposed_price
+#   - intent: inform_proposed_price
+#     entities:
+#     - proposed_price: '70'
+#   - slot_was_set:
+#     - proposed_price: '70'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slots
+#   - action: action_get_dis_price
+#   - slot_was_set:
+#     - discount_price: '70'
+#   - action: utter_wait_for_confirmation
+#   - intent: accept_price
+#   - action: utter_happy_to_sell
+#   - action: utter_goodbye
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: buy_request
+#   - action: product_form
+#   - active_loop: product_form
+#   - slot_was_set:
+#     - requested_slot: product_id
+#   - intent: inform_product_id
+#     entities:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - slot_was_set:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: quantity
+#   - intent: inform_quantity
+#     entities:
+#     - quantity: '20'
+#   - slot_was_set:
+#     - quantity: '20'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: proposed_price
+#   - intent: inform_proposed_price
+#     entities:
+#     - proposed_price: '52'
+#   - slot_was_set:
+#     - proposed_price: '52'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slots
+#   - action: action_get_dis_price
+#   - slot_was_set:
+#     - discount_price: '52'
+#   - action: utter_wait_for_confirmation
+#   - intent: deny_price
+#   - action: utter_ask_proposed_price
+#   - intent: inform_proposed_price
+#     entities:
+#     - proposed_price: '58'
+#   - slot_was_set:
+#     - proposed_price: '58'
+#   - action: product_form
+#   - active_loop: product_form
+#   - slot_was_set:
+#     - proposed_price: '58'
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slots
+#   - action: action_get_dis_price
+#   - slot_was_set:
+#     - discount_price: '58'
+#   - action: utter_wait_for_confirmation
+#   - intent: accept_price
+#   - action: utter_happy_to_sell
+#   - action: utter_goodbye
+
+# - story: interactive_story_3
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: buy_request
+#   - action: product_form
+#   - active_loop: product_form
+#   - slot_was_set:
+#     - requested_slot: product_id
+#   - intent: inform_product_id
+#     entities:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - slot_was_set:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: quantity
+#   - intent: inform_quantity
+#     entities:
+#     - quantity: '1'
+#   - slot_was_set:
+#     - quantity: '1'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: proposed_price
+#   - intent: inform_proposed_price
+#     entities:
+#     - proposed_price: '45'
+#   - slot_was_set:
+#     - proposed_price: '45'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slots
+#   - action: action_get_dis_price
+#   - slot_was_set:
+#     - discount_price: 50.0
+#   - action: utter_wait_for_confirmation
+#   - intent: accept_price
+#   - action: utter_happy_to_sell
+#   - action: utter_goodbye
+
+# - story: interactive_story_4
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: buy_request
+#   - action: product_form
+#   - active_loop: product_form
+#   - slot_was_set:
+#     - requested_slot: product_id
+#   - intent: inform_product_id
+#     entities:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - slot_was_set:
+#     - product_id: 5d806ae97c339c307264cf77
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: quantity
+#   - intent: inform_quantity
+#     entities:
+#     - quantity: '1'
+#   - slot_was_set:
+#     - quantity: '1'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: proposed_price
+#   - intent: inform_proposed_price
+#     entities:
+#     - proposed_price: '55'
+#   - slot_was_set:
+#     - proposed_price: '55'
+#   - action: product_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_slots
+#   - action: action_get_dis_price
+#   - slot_was_set:
+#     - discount_price: '55'
+#   - action: utter_wait_for_confirmation
+#   - intent: accept_price
+#   - action: utter_happy_to_sell
+#   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_request
+  - action: product_form
+  - active_loop: product_form
+  - slot_was_set:
+    - requested_slot: product_id
+  - intent: inform_product_id
+    entities:
+    - product_id: 5d806ae97c339c307264cf77
+  - slot_was_set:
+    - product_id: 5d806ae97c339c307264cf77
+  - action: product_form
+  - slot_was_set:
+    - requested_slot: quantity
+  - intent: inform_quantity
+    entities:
+    - quantity: '5'
+  - slot_was_set:
+    - quantity: '5'
+  - action: product_form
+  - slot_was_set:
+    - requested_slot: proposed_price
+  - intent: inform_proposed_price
+    entities:
+    - proposed_price: '70'
+  - slot_was_set:
+    - proposed_price: '70'
+  - action: product_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slots
+  - action: action_get_dis_price
+  - slot_was_set:
+    - discount_price: '70'
+  - action: utter_wait_for_confirmation
+  - intent: accept_price
+  - action: utter_happy_to_sell
+  - action: utter_goodbye

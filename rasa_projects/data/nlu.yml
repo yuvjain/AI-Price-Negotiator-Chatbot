@@ -1,0 +1,214 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - helllo
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thank you bye
+    - [exit](goodbye)
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: buy_request
+  examples: |
+    - I would like to buy
+    - i would like to negotiate
+    - I'm interested in purchasing something.
+    - I want to buy something.
+    - I'd like to make a purchase.
+    - I'm looking to buy something.
+    - I'm interested in negotiating.
+    - I want to discuss terms.
+    - I'd like to negotiate.
+    - I'm looking to negotiate.
+    - I would like to enter into negotiations.
+    - im good. i want to buy something
+    - i want to negotiate on id [SNJ382](product_id)
+    - i want to buy
+    - i want to negotiate
+- intent: inform_quantity
+  examples: |
+    - I would like to buy [5](quantity) of those.
+    - I would like to buy [3](quantity) of those.
+    - I would like to buy [7](quantity) of those.
+    - I would like to buy [10](quantity) of those.
+    - I would like to buy [2](quantity) of those.
+    - I'm interested in purchasing [3](quantity) of that item.
+    - I'm interested in purchasing [6](quantity) of that item.
+    - I'm interested in purchasing [8](quantity) of that item.
+    - I'm interested in purchasing [1](quantity) of that item.
+    - I'm interested in purchasing [4](quantity) of that item.
+    - I want to buy [4](quantity) of those.
+    - I want to buy [9](quantity) of those.
+    - I want to buy [11](quantity) of those.
+    - I want to buy [2](quantity) of those.
+    - I want to buy [5](quantity) of those.
+    - I'd like to get [2](quantity) of those, please.
+    - I'd like to get [4](quantity) of those, please.
+    - I'd like to get [7](quantity) of those, please.
+    - I'd like to get [1](quantity) of those, please.
+    - I'd like to get [3](quantity) of those, please
+    - I'm looking to buy [6](quantity) of that.
+    - I'm looking to buy [5](quantity) of that.
+    - I'm looking to buy [9](quantity) of that.
+    - I'm looking to buy [12](quantity) of that.
+    - I'm looking to buy [8](quantity) of that.
+    - [12](quantity)
+    - [7](quantity)
+    - [15](quantity)
+    - [2](quantity)
+    - [20](quantity)
+    - [65](quantity) of that
+    - [30](quantity) of that
+    - [40](quantity) of that
+    - [75](quantity) of that
+    - [50](quantity) of that
+    - i was thinking [2000](proposed_price)
+    - i want [30](quantity) of it
+    - i want [20](quantity) of it
+    - i want to [1](quantity) of it
+    - i want [1](quantity) of it
+    - i want [5](quantity) of it
+- intent: inform_product_id
+  examples: |
+    - the id is [ABC123](product_id)
+    - The id is [DEF456](product_id)
+    - The id is [GHI789](product_id)
+    - The id is [JKL012](product_id)
+    - The id is [MNO345](product_id)
+    - The id is [PQR678](product_id)
+    - The id is [STU901](product_id)
+    - The id is [VWX234](product_id)
+    - The id is [YEZ567](product_id)
+    - The id is [BXF333](product_id)
+    - The id is [DEF348](product_id)
+    - [DEF324](product_id)
+    - [XYZ738](product_id)
+    - [NSM722](product_id)
+    - [MSK133](product_id)
+    - [NAL092](product_id)
+    - [BEM123](product_id)
+    - [NSO834](product_id) is the id
+    - [BUI810](product_id) is the id
+    - [JND710](product_id) is the id
+    - [NSD910](product_id) is the id
+    - [FAR801](product_id) is the id
+    - [PLL315](product_id) is the id
+    - the product i want is [ADJ728](product_id)
+    - the id is [5d806ae97c339c307264cf77](product_id)
+    - the id is [5d806ae97c339c307264cf77](product_id)
+- intent: inform_proposed_price
+  examples: |
+    - how about [32](proposed_price)?
+    - how about [25](proposed_price)?
+    - how about [45](proposed_price)?
+    - how about [60](proposed_price)?
+    - how about [15](proposed_price)?
+    - how about [50](proposed_price)?
+    - i can offer [55](proposed_price)
+    - i can offer [40](proposed_price)
+    - i can offer [30](proposed_price)
+    - i can offer [70](proposed_price)
+    - i can offer [20](proposed_price)
+    - i can offer [65](proposed_price)
+    - my budget is [12](proposed_price)
+    - my budget is [20](proposed_price)
+    - my budget is [35](proposed_price)
+    - my budget is [50](proposed_price)
+    - my budget is [25](proposed_price)
+    - my budget is [10](proposed_price)
+    - i was looking for the price of [74](proposed_price)
+    - i was looking for the price of [80](proposed_price)
+    - i was looking for the price of [90](proposed_price)
+    - i was looking for the price of [100](proposed_price)
+    - i was looking for the price of [60](proposed_price)
+    - i was looking for the price of [85](proposed_price)
+    - i want about [50](quantity) of it
+    - i can  offer [120](proposed_price)
+    - i can offer [52](proposed_price)
+    - i can offer [58](proposed_price)
+    - i can offer [45](proposed_price)
+    - i can offer [70](proposed_price)
+- intent: accept_price
+  examples: |
+    - sounds good
+    - yes, that works for me
+    - I accept your offer
+    - sure, let's do it
+    - that price is acceptable
+    - perfect, I'll take it.
+    - deal!
+    - that sounds fair.
+    - I'm happy with that price.
+    - sounds good, I can pay for it now.
+    - yes, that works for me.
+    - I accept your offer.
+    - I'm in.
+    - alright, that works.
+    - yep, that's good.
+    - okay, sounds like a plan.
+    - cool, let's do it.
+    - I guess that price is alright.
+    - okay, I can accept that.
+    - well, alright, that works.
+    - ill take that
+    - yes ill take that
+- intent: deny_price
+  examples: |
+    - no
+    - I don't think that price will work
+    - that's a bit too high
+    - can we negotiate a bit more
+    - I'm afraid I can't accept that price
+    - that price is out of my budget
+    - I was hoping for a lower price.
+    - could you offer a discount?
+    - that's a little more than I expected.
+    - let's see if we can find a better price.
+    - is there any wiggle room on the price?
+    - I'm interested, but the price needs to be lower.
+    - no i cannot

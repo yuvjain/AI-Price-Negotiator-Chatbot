@@ -1,0 +1,91 @@
+version: '3.1'
+intents:
+- accept_price
+- affirm
+- bot_challenge
+- buy_request
+- deny
+- deny_price
+- goodbye
+- greet
+- inform_product_id
+- inform_proposed_price
+- inform_quantity
+- product_inquiry
+- product_search
+- propose_price
+entities:
+- product_id
+- quantity
+- proposed_price
+- goodbye
+slots:
+  quantity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: quantity
+  product_id:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: product_id
+  proposed_price:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: proposed_price
+  discount_price:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+forms:
+  product_form:
+    required_slots:
+    - product_id
+    - quantity
+    - proposed_price
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_product_id:
+  - text: Can you please provide the product ID?
+  - text: Could you tell me the product ID?
+  utter_ask_quantity:
+  - text: How many units would you like to purchase?
+  - text: What quantity are you interested in buying?
+  utter_ask_proposed_price:
+  - text: What price are you willing to offer?
+  - text: Could you specify the price you have in mind?
+  utter_slots:
+  - text: 'you have wished to negotiate on {quantity} units of {product_id} for a price of ${proposed_price}.'
+  utter_wait_for_confirmation:
+  - text: 'Thanks for your offer. Would you like to accept our proposed price of ${discount_price}?'
+  utter_happy_to_sell:
+  - text: Great! We've reached an agreement. Happy to sell you the product.
+  utter_ask_new_price:
+  - text: What price are you willing to offer?
+  - text: Could you specify the price you have in mind?
+actions:
+- utter_wait_for_confirmation
+- utter_happy_to_sell
+- utter_slots
+- action_get_dis_price
+- utter_greet
+- utter_goodbye
+- utter_ask_proposed_price
+- utter_ask_new_price
+- utter_ask_quantity
+- utter_ask_product_id
+- utter_counter_offer
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
