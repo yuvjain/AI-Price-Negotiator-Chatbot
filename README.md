@@ -27,7 +27,7 @@ The AI Price Negotiator Chatbot can interact with users to negotiate product pri
 1. **Clone the repository:**
     ```bash
     git clone <https://github.com/yuvjain/AI-Price-Negotiator-Chatbot/tree/main/rasa_projects>
-    cd <repository-directory>
+    cd <AI-Price-Negotiator-Chatbot>
     ```
 
 2. **Install dependencies:**
